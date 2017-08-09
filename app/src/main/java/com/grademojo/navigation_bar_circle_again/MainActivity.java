@@ -1,9 +1,6 @@
 package com.grademojo.navigation_bar_circle_again;
-import android.app.SearchManager;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -69,11 +66,11 @@ public class MainActivity extends AppCompatActivity
 
 
         // Set the margins.
-        pieChart.setExtraOffsets(0, 0, 0, 0);
-        pieChart.setExtraOffsets(0.f, 0.f, 0.f, 0.f);
+//        pieChart.setExtraOffsets(0, 0, 0, 0);
+//        pieChart.setExtraOffsets(0.f, 0.f, 0.f, 0.f);
 
 
-       pieChart.setDragDecelerationFrictionCoef(1f);
+       pieChart.setDragDecelerationFrictionCoef(0.95f);
 
 
         // The hole in middle of Pie to make it a donut
@@ -88,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         //pieChart.setTransparentCircleColor(ContextCompat.getColor(context.getContext(), R.color.new_grey));
         pieChart.setTransparentCircleAlpha(110);
 
-        pieChart.setHoleRadius(90f);
+        pieChart.setHoleRadius(95f);
         pieChart.setTransparentCircleRadius(61f);
 
 
@@ -108,8 +105,6 @@ public class MainActivity extends AppCompatActivity
 
         Photos = 100.0f - Documents ;
         Photos = new BigDecimal(Photos).setScale(DECIMAL_SCALE, BigDecimal.ROUND_FLOOR).floatValue();
-
-
 
 
 
@@ -165,6 +160,7 @@ public class MainActivity extends AppCompatActivity
             // Means leave is NOT there
             // But present is there
             // => Sequence is: present And/Or:absent
+
             dataSet.setColors(ContextCompat.getColor(context.getContext(), R.color.yellow),ContextCompat.getColor(context.getContext(), R.color.orange));
         }else{
             // Means present is there
@@ -176,11 +172,12 @@ public class MainActivity extends AppCompatActivity
 
 
         // Move Values out of the "pies"
-        dataSet.setValueLinePart1OffsetPercentage(80.f);
-        dataSet.setValueLinePart1Length(0.2f);
-        dataSet.setValueLinePart2Length(0.4f);
-        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+//        dataSet.setValueLinePart1OffsetPercentage(60.f);
+//        dataSet.setValueLinePart1Length(0.4f);
+//        dataSet.setValueLinePart2Length(0.4f);
+//        dataSet.setValueLineColor(ContextCompat.getColor(context.getContext(),R.color.new_grey));
+//        dataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+//        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
 
 
 
@@ -196,8 +193,8 @@ public class MainActivity extends AppCompatActivity
         // Formatting of the "values" shown alongside the pies
         data.setValueFormatter(new PercentFormatter());
 
-        data.setValueTextSize(11f);
-        data.setValueTextColor(ContextCompat.getColor(context.getContext(), R.color.new_grey));
+          data.setValueTextSize(0f);
+//        data.setValueTextColor(ContextCompat.getColor(context.getContext(), R.color.blue));
 
 
         // Apply the "PieData" object to pieChart
